@@ -9,5 +9,8 @@
     "twitter-api-v2": "^1.10.0"
   },
   "license": "MIT",
-  "private": true
+  "private": true,
+  "scripts": {
+    "start": "node tmy-towing.js"
+  }
 }

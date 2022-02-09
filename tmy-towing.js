@@ -80,6 +80,6 @@ function updateTwitterStock() {
     msg += items[i].name + ': ' + (items[i].instock ? '🟩 in stock' : '🟥 unavailable') + '\r\n';
   }
   
-  console.log('[%s] Tweeting scheduled update for', new Date().toISOString());
+  console.log('[%s] Tweeting scheduled update', new Date().toISOString());
   tweetMessage(msg);
 }
