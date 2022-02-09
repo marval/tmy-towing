@@ -82,10 +82,10 @@ setInterval(function() {
 }, 21600000)
 
 function tweetMessage(_msg) {
-  /*twitterClient.v1.tweet(_msg).then((val) => {
+  twitterClient.v1.tweet(_msg).then((val) => {
   }).catch((err) => {
     console.log(err)
-  })*/
+  })
 }
 
 function updateTwitterStock() {
