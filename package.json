@@ -1,0 +1,13 @@
+{
+  "name": "tmy-towing",
+  "version": "0.0.1",
+  "author": "Martin Valov",
+  "description": "Monitor the in-stock status of the TMY Towing package across the Nordic countries",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "request": "^2.88.2",
+    "twitter-api-v2": "^1.10.0"
+  },
+  "license": "MIT",
+  "private": true
+}
