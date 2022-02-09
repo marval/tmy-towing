@@ -2,36 +2,41 @@
   {
     "name": "🇩🇪 Germany",
     "url": "https://shop.tesla.com/de_de/category/fahrzeugzubehor/model-y",
-    "instock": true,
-    "prevInstock": true,
-    "stockUpdate": ""
+    "instock": false,
+    "prevInstock": false,
+    "stockUpdate": "",
+    "detailsUrl": "https://shop.tesla.com/de_de/product/model-y-anhangerpaket?tesla_logged_in=Y"
   },
   {
     "name": "🇳🇴 Norway",
     "url": "https://shop.tesla.com/no_no/category/kj_ret_ytilbeh_r/model-y",
-    "instock": true,
-    "prevInstock": true,
-    "stockUpdate": ""
+    "instock": false,
+    "prevInstock": false,
+    "stockUpdate": "",
+    "detailsUrl": "https://shop.tesla.com/no_no/product/model-y-_-tilhengerfeste"
   },
   {
     "name": "🇩🇰 Denmark",
     "url": "https://shop.tesla.com/da_dk/category/tilbeh_r-til-biler/model-y",
     "instock": false,
     "prevInstock": false,
-    "stockUpdate": ""
+    "stockUpdate": "",
+    "detailsUrl": "https://shop.tesla.com/da_dk/product/anh_ngertr_k-til-model-y"
   },
   {
     "name": "🇸🇪 Sweden",
     "url": "https://shop.tesla.com/sv_se/category/biltillbehor/model-y",
     "instock": false,
     "prevInstock": false,
-    "stockUpdate": ""
+    "stockUpdate": "",
+    "detailsUrl": ""
   },
   {
     "name": "🇳🇱 Netherlands",
     "url": "https://shop.tesla.com/nl_nl/category/voertuigaccessoires/model-y",
-    "instock": true,
-    "prevInstock": true,
-    "stockUpdate": ""
+    "instock": false,
+    "prevInstock": false,
+    "stockUpdate": "",
+    "detailsUrl": "https://shop.tesla.com/nl_nl/product/trekhaakpakket-model-y"
   }
 ]

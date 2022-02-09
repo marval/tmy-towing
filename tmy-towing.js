@@ -15,43 +15,58 @@ const twitterClient = new TwitterApi({
   accessSecret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 });
 
-function getItem() {
-  req.get(items[ctr].url, (err, res, body) => {
-    if (err) return false;
-    var avail = body.search(/data-productsku="1729707-00-A"/) !== -1;
-    
-    items[ctr].stockUpdate = '';
-    items[ctr].prevInstock = items[ctr].instock;
-    items[ctr].instock = avail;
 
-    if(items[ctr].instock != items[ctr].prevInstock) {
-      var msg = '';
-      if(items[ctr].instock)
-      {
-        //good news
-        msg += '#TMYTowingAlert\r\n🥳💰💸 Good news ❗❗❗\r\n Towing package is now available in ' + items[ctr].name + '\r\n' + items[ctr].url;
-      } else {
-        //bad news
-        msg += '#TMYTowingAlert\r\n😭😭😭 Bad news ❗❗❗\r\n Towing package NO longer available in ' + items[ctr].name;
-      }
-      console.log('[%s] Tweeting immidiate update for %s', new Date().toISOString(), items[ctr].name);
-      tweetMessage(msg);
-    }
-    console.log('[%s] %s %s', new Date().toISOString(), items[ctr].name, avail ? '🟩 in stock' : '🟥 unavailable');
-    
-    ctr++;
-    if (ctr < items.length) {
-      getItem();
+
+function getItem() {
+  if(items[ctr].detailsUrl != '') {
+    req.get(items[ctr].detailsUrl, (err, res, body) => {
+      if (err) return false;
+      
+      var outOfStock = body.search(/pdp-btn-soldout active/) !== -1;
+      updateStatus(ctr, outOfStock);
+    })
+  } else {
+    req.get(items[ctr].url, (err, res, body) => {
+      if (err) return false;
+
+      var onWebsite = body.search(/data-productsku="1729707-00-A"/) !== -1;
+      updateStatus(ctr, onWebsite);
+    });
+  }
+}
+
+function updateStatus(_ctr, _avail) {
+  items[_ctr].stockUpdate = '';
+  items[_ctr].prevInstock = items[_ctr].instock;
+  items[_ctr].instock = _avail;
+
+  if(items[_ctr].instock != items[_ctr].prevInstock) {
+    var msg = '';
+    if(items[_ctr].instock)
+    {
+      //good news
+      msg += '#TMYTowingAlert\r\n🥳💰💸 Good news ❗❗❗\r\n Towing package is now available in ' + items[_ctr].name + '\r\n' + items[_ctr].url;
     } else {
-      fs.writeFile('items.json', JSON.stringify(items, null, '  '), (err) => {
-        if (err)
-          console.log(err);
-        else {
-          updateTwitterStock();
-        }
-      });
+      //bad news
+      msg += '#TMYTowingAlert\r\n😭😭😭 Bad news ❗❗❗\r\n Towing package NO longer available in ' + items[_ctr].name;
     }
-  });
+    console.log('[%s] Tweeting immidiate update for %s', new Date().toISOString(), items[_ctr].name);
+    tweetMessage(msg);
+  }
+  console.log('[%s] %s %s', new Date().toISOString(), items[_ctr].name, _avail ? '🟩 in stock' : '🟥 unavailable');
+
+  ctr++;
+  if (ctr < items.length) {
+    getItem();
+  } else {
+    fs.writeFile('items.json', JSON.stringify(items, null, '  '), (err) => {
+      if (err)
+        console.log(err);
+      else {
+        updateTwitterStock();
+      }
+    });
+  }
 }
 
 getItem();
@@ -67,10 +82,10 @@ setInterval(function() {
 }, 21600000)
 
 function tweetMessage(_msg) {
-  twitterClient.v1.tweet(_msg).then((val) => {
+  /*twitterClient.v1.tweet(_msg).then((val) => {
   }).catch((err) => {
     console.log(err)
-  })
+  })*/
 }
 
 function updateTwitterStock() {
@@ -79,6 +94,7 @@ function updateTwitterStock() {
   for (let i = 0; i < items.length; i++) {
     msg += items[i].name + ': ' + (items[i].instock ? '🟩 in stock' : '🟥 unavailable') + '\r\n';
   }
+  msg += ('[%s]', new Date().toISOString());
   
   console.log('[%s] Tweeting scheduled update', new Date().toISOString());
   tweetMessage(msg);
