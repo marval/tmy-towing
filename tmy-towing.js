@@ -60,11 +60,7 @@ function updateStatus(_ctr, _avail) {
     getItem();
   } else {
     fs.writeFile('items.json', JSON.stringify(items, null, '  '), (err) => {
-      if (err)
-        console.log(err);
-      else {
-        updateTwitterStock();
-      }
+      if (err) console.log(err)
     });
   }
 }
