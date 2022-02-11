@@ -38,5 +38,13 @@
     "prevInstock": false,
     "stockUpdate": "",
     "detailsUrl": "https://shop.tesla.com/nl_nl/product/trekhaakpakket-model-y"
+  },
+  {
+    "name": "🇨🇭 Switzerland",
+    "url": "https://shop.tesla.com/de_ch/category/fahrzeugzubehor/model-y",
+    "instock": false,
+    "prevInstock": false,
+    "stockUpdate": "",
+    "detailsUrl": "https://shop.tesla.com/de_ch/product/model-y-anhangerpaket"
   }
 ]
