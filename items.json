@@ -2,10 +2,11 @@
   {
     "name": "🇩🇪 Germany",
     "url": "https://shop.tesla.com/de_de/category/fahrzeugzubehor/model-y",
-    "instock": false,
-    "prevInstock": false,
+    "instock": true,
+    "prevInstock": true,
     "stockUpdate": "",
-    "detailsUrl": "https://shop.tesla.com/de_de/product/model-y-anhangerpaket?tesla_logged_in=Y"
+    "detailsUrl": "https://shop.tesla.com/de_de/product/model-y-anhangerpaket?tesla_logged_in=Y",
+    "land": "de_de"
   },
   {
     "name": "🇳🇴 Norway",
@@ -13,7 +14,8 @@
     "instock": false,
     "prevInstock": false,
     "stockUpdate": "",
-    "detailsUrl": "https://shop.tesla.com/no_no/product/model-y-_-tilhengerfeste"
+    "detailsUrl": "https://shop.tesla.com/no_no/product/model-y-_-tilhengerfeste",
+    "land": "no_no"
   },
   {
     "name": "🇩🇰 Denmark",
@@ -21,23 +23,24 @@
     "instock": false,
     "prevInstock": false,
     "stockUpdate": "",
-    "detailsUrl": "https://shop.tesla.com/da_dk/product/anh_ngertr_k-til-model-y"
+    "detailsUrl": "https://shop.tesla.com/da_dk/product/anh_ngertr_k-til-model-y",
+    "land": "da_dk"
   },
   {
     "name": "🇸🇪 Sweden",
     "url": "https://shop.tesla.com/sv_se/category/biltillbehor/model-y",
-    "instock": false,
-    "prevInstock": false,
     "stockUpdate": "",
-    "detailsUrl": ""
+    "detailsUrl": "",
+    "land": "sv_sv"
   },
   {
     "name": "🇳🇱 Netherlands",
     "url": "https://shop.tesla.com/nl_nl/category/voertuigaccessoires/model-y",
-    "instock": false,
-    "prevInstock": false,
+    "instock": true,
+    "prevInstock": true,
     "stockUpdate": "",
-    "detailsUrl": "https://shop.tesla.com/nl_nl/product/trekhaakpakket-model-y"
+    "detailsUrl": "https://shop.tesla.com/nl_nl/product/trekhaakpakket-model-y",
+    "land": "nl_nl"
   },
   {
     "name": "🇨🇭 Switzerland",
@@ -45,6 +48,7 @@
     "instock": false,
     "prevInstock": false,
     "stockUpdate": "",
-    "detailsUrl": "https://shop.tesla.com/de_ch/product/model-y-anhangerpaket"
+    "detailsUrl": "https://shop.tesla.com/de_ch/product/model-y-anhangerpaket",
+    "land": "de_ch"
   }
 ]

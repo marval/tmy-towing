@@ -18,21 +18,21 @@ const twitterClient = new TwitterApi({
 
 
 function getItem() {
-  if(items[ctr].detailsUrl != '') {
-    req.get(items[ctr].detailsUrl, (err, res, body) => {
-      if (err) return false;
-      
-      var outOfStock = body.search(/pdp-btn-soldout active/) !== -1;
-      updateStatus(ctr, outOfStock);
-    })
-  } else {
-    req.get(items[ctr].url, (err, res, body) => {
-      if (err) return false;
+  checkAvailability(updateStatus, ctr, items[ctr].land);
+}
 
-      var onWebsite = body.search(/data-productsku="1729707-00-A"/) !== -1;
-      updateStatus(ctr, onWebsite);
-    });
-  }
+
+function checkAvailability(_callback, _ctr, _land, _sku = "1729707-00-A") {
+        
+  req.post({
+      url: 'https://shop.tesla.com/' + _land + '/inventory.json',
+      method: 'POST',
+      json: [_sku]
+  }, function(error, response, body){
+      if(error) return _callback(_ctr, false);
+
+      _callback(_ctr, body[0].purchasable)
+  });
 }
 
 function updateStatus(_ctr, _avail) {
